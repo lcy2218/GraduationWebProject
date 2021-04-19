@@ -1,0 +1,98 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<script src="../static/js/jquery-3.6.0.min.js"></script>
+		<!-- 		<script>
+			function select() {
+			var sel = document.getElementsByName("comp_select");
+			var selected_val = sel.options;
+			//alert(selected_val[i].value);
+			alert(selected_val[selected_val.selectedIndex].value);
+					
+			}
+		</script> -->
+		<script>
+		function chang(value) {
+			$.ajax('', {
+			        url: "/test",
+			        type: "post",
+					dataType:'json',
+					data:{
+						'value':value
+					},
+
+				success:function (value) {
+					 alert(JSON.stringify(data));
+				},error:function (value) {
+					alert(JSON.stringify(data));
+				}
+			    }
+			)
+		//location.href = "/test";
+		}
+		</script>
+	</head>
+	<body>
+		<h1>
+			疫情追中
+		</h1>
+		<h3>实时报道</h3>
+		<div>
+			<form id="f" method="post"   action="/test" >
+
+				<select id="s"  name="comp_select" onchange="chang(this.value)">
+
+					<option id="a" value="累计确诊" selected="selected">累计确诊</option>
+					<option id="b" value="现有确诊">现有确诊</option>
+				</select>
+
+				<!-- <button type="submit" >Go</button> -->
+
+			</form>
+		</div>
+
+		<!-- 		<script>
+			
+
+		  (function() {
+			var sel = document.getElementsByName("comp_select");
+			var selected_val = sel.options;
+			for(var i =0;i<selected_val.length;i++)
+			{
+			    if(selected_val[i].selected)
+			    {
+					value = selected_val[i].value;
+			        alert(selected_val[i].value);
+			    }
+			}
+			$.ajax('', {
+			    url: "/test",
+			    type: "post",
+				data:{
+					"value":value
+				},
+			    success: function (data) {
+			    },
+			    error: function (xhr, type, errorThrown) {}
+			})
+			
+			
+		  })();
+			// $.ajax('', {
+			// 	url: "/test",
+			// 	type: "post",
+			// 	data:{
+			// 		"value":selected_val
+			// 	},
+			// 	success: function(data) {
+			// 		alert("发送ajax请求成功！")
+
+			// 	},
+			// 	error: function(xhr, type, errorThrown) {}
+			// })
+		</script> -->
+
+
+	</body>
+</html>
